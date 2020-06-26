@@ -1,0 +1,27 @@
+{
+  "name": "reservoir_dashboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thopatevijay/Reservoir_Dashboard.git"
+  },
+  "author": "vijay thopate",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thopatevijay/Reservoir_Dashboard/issues"
+  },
+  "homepage": "https://github.com/thopatevijay/Reservoir_Dashboard#readme",
+  "dependencies": {
+    "apexcharts": "^3.19.2",
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "jsdom": "^16.2.2",
+    "node-fetch": "^2.6.0",
+    "nodemon": "^2.0.4"
+  }
+}
