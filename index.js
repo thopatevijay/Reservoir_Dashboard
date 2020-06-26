@@ -268,7 +268,9 @@ app.get('/dashboard', async (req,res) => {
         
         res.render('index',{ 
             allData : dateWiseWaterLevel,
-            allDates : dates
+            allDates : dates,
+            FRLdata : FRLdata,
+            MWLdata : MWLdata
         })
        })
       }

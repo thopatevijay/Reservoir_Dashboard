@@ -328,7 +328,7 @@ function makeData(){
 
   <!-- Html  -->
 </head>
-<bod>
+<body>
 
  <div class="container" style="padding: 10px 50px 50px 50px;">
   <div class="row ">
@@ -342,11 +342,20 @@ function makeData(){
     <div class="col-sm" style="padding: 200px 50px 50px 0px;">
       <p>Dam Reservoir Dashboard</p>
       <blockquote>Data Source : http://idrb.kerala.gov.in/idrb/irrigation_html_disp/reservoir.html.</blockquote>
-
+      <a href="#FRLMWLchart">FRL & MWL</a> <br>
 
     </div>
   </div>
  </div>
+
+ <div class="container">
+    <div class="row">
+      <div class="col-sm" style="padding: 50px 50px 50px 50px;">
+        <div id="FRLMWLchart"></div>
+      </div>
+    </div>
+   </div>
+  
 
  
 
@@ -559,5 +568,120 @@ function makeData(){
         updateWeeklyChart(chart, 'barDays')
       })
 </script>
+<!-- FRLMWL Chart -->
+
+
+<script>
+    let frlData = [];
+    let mwlData = [];
+    
+    let i,j;
+    '<%for(i = 0;i<FRLdata.length;i++){%>'
+    frlData.push(parseFloat(['<%=FRLdata[i]%>']))
+    '<%}%>'
+    
+    '<%for(j = 0;j<MWLdata.length;j++){%>'
+    mwlData.push(parseFloat(['<%=MWLdata[j]%>']))
+    '<%}%>'
+    
+    // console.log(alldata)
+    // console.table(alldata)
+    // console.table(alldata[0][1])
+    
+    
+     let FRLMWLoptions = {
+              series: [{
+              name: 'FLR',
+              data: frlData
+            }, {
+              name: 'MWL',
+              data: mwlData
+            }],
+              chart: {
+              type: 'area',
+              height: 500,
+              background:'#f4f4f4',
+              foreColor : '#333', 
+              // width:500,
+              stacked: true,
+              // stackType: '100%'
+            },
+            plotOptions: {
+              bar: {
+                horizontal: false,
+                columnWidth: '55%',
+                endingShape: 'rounded'
+              },
+            },
+            dataLabels: {
+              enabled: false
+            },
+            stroke: {
+              show: true,
+              width: 2,
+              colors: ['transparent']
+            },
+            title: {
+              text: 'FRL & MWL Level',
+              // align: 'left',
+              // offsetX: 110
+          },
+            responsive: [{
+              breakpoint: 480,
+              options: {
+                // legend: {
+                //   position: 'top',
+                //   offsetX: -10,
+                //   offsetY: 0
+                // }
+              }
+            }],
+            xaxis: {
+              categories: ['Chimoni','Chulliyar','Kallada','Kanjirapuzha','Karapuzha','Kuttiady','Malampuzha','Malankara','Mangalam',
+              'Meenkara','Neyyar','Pamba','Pazhassi','Peechi',
+              'Periyar','Pothundy','Siruvani','Vazhani','Walayar'
+              ],
+              labels:{
+                rotate: 270,
+                rotateAlways: true,
+              }
+            },
+            yaxis: {
+                // tickAmount: 50,
+            //   min: 0,
+            //   max: 1000,
+            forceNiceScale: true,
+            
+              title: {
+                text: '(m)'
+              },
+              axisBorder: {
+              show: true,
+              color: '#78909C',
+              offsetX: 0,
+              offsetY: 0
+          },
+            },
+            fill: {
+              opacity: 1
+            },
+            legend: {
+              position: 'right',
+              offsetX: 0,
+              offsetY: 50
+            },
+            tooltip: {
+              y: {
+                formatter: function (val) {
+                  return  val + "(m)"
+                }
+              }
+            }
+            };
+    
+            let FRLMWLchart = new ApexCharts(document.querySelector("#FRLMWLchart"), FRLMWLoptions);
+            FRLMWLchart.render();
+    </script>
+  
 </body>
 </html>
