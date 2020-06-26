@@ -256,17 +256,20 @@ app.get('/dashboard', async (req,res) => {
                         MWLdata[i].push(parseFloat(MWL.slice(1,-1)));
                     }
                  }
-                 
-    console.table(dateWiseWaterLevel)
-    console.table(dates)
-    console.table(domlength)
-    console.table(calculatedlength)
+
+    // console.table(dateWiseWaterLevel)
+    // console.table(dates)
+    // console.table(domlength)
+    // console.table(calculatedlength)
     
-    console.log(thisYearStorage)        
-    console.log(lastYearStorage)        
+    // console.log(thisYearStorage)        
+    // console.log(lastYearStorage)        
      
         
-        res.send("Dashboard")
+        res.render('index',{ 
+            allData : dateWiseWaterLevel,
+            allDates : dates
+        })
        })
       }
     })
