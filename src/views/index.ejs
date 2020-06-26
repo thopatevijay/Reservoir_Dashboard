@@ -343,6 +343,7 @@ function makeData(){
       <p>Dam Reservoir Dashboard</p>
       <blockquote>Data Source : http://idrb.kerala.gov.in/idrb/irrigation_html_disp/reservoir.html.</blockquote>
       <a href="#FRLMWLchart">FRL & MWL</a> <br>
+      <a href="#rainfallchart">Catchment Area & Probable Maximum Flood</a>
 
     </div>
   </div>
@@ -356,7 +357,14 @@ function makeData(){
     </div>
    </div>
   
-
+   <div class="container">
+    <div class="row">
+      <div class="col-sm" style="padding: 50px 50px 50px 50px;">
+        <div id="rainfallchart">
+      </div>
+    </div>
+  </div>
+  </div>
  
 
 
@@ -683,5 +691,115 @@ function makeData(){
             FRLMWLchart.render();
     </script>
   
+  <!-- Catchment Area And Probable Maximum Flood chart -->
+<script>
+  
+    let rainfalloprions = {
+            series: [{
+            name: 'Catchmetn Area (sqkm) ',
+            type: 'column',
+            data: [72.13, 27.80, 549,70.00,108.78,147.635,153.5,48.85,90.65,140,287,640,18615.50,3048,31,22.47,20.48,106.35]
+          }, {
+            name: 'Probable Maximum Flood (cumecs)',
+            type: 'line',
+            data: [1680,223.70,305,504.00,1071.75,360,1444.32,8650,472.60,809.4,1280,3500,368.119,7079,680,435,294.04,396.40]
+          }],
+            chart: {
+            height: 500,
+            width:900,
+            type: 'line',
+            stacked: false
+          },
+          dataLabels: {
+            enabled: false
+          },
+          stroke: {
+            width: [1, 1, 4]
+          },
+          title: {
+            text: 'Catchment Area & Probable Maximum Flood',
+            align: 'left',
+            offsetX: 110
+          },
+          xaxis: {
+            categories: ['Chimoni','Chulliyar','Kallada','Kanjirapuzha','Karapuzha','Kuttiady','Malampuzha','Malankara','Mangalam',
+              'Meenkara','Neyyar','Pamba','Pazhassi','Peechi',
+              'Periyar','Pothundy','Siruvani','Vazhani'],
+              labels:{
+                rotate: 270,
+                rotateAlways: true,
+              }
+          },
+          yaxis: [
+            {
+              axisTicks: {
+                show: true,
+              },
+              axisBorder: {
+                show: true,
+                color: '#008FFB'
+              },
+              labels: {
+                style: {
+                  colors: '#008FFB',
+                }
+              },
+              title: {
+                text: "Catchment Area (sqkm)",
+                style: {
+                  color: '#008FFB',
+                }
+              },
+              tooltip: {
+                enabled: true,
+               
+              }
+            },
+            {
+              seriesName: 'Probable Maximum Flood',
+              opposite: true,
+              axisTicks: {
+                show: true,
+              },
+              axisBorder: {
+                show: true,
+                color: '#00E396'
+              },
+              labels: {
+                style: {
+                  colors: '#00E396',
+                },
+              },
+              title: {
+                text: "Probable Maximum Flood (cumecs)",
+                style: {
+                  color: '#00E396',
+                }
+              }
+            },
+          ],
+          tooltip: {
+            fixed: {
+              enabled: true,
+              position: 'topLeft', // topRight, topLeft, bottomRight, bottomLeft
+              offsetY: 30,
+              offsetX: 60
+            },
+            y: {
+                formatter: function (val) {
+                  return  val 
+                }
+              }
+          },
+          legend: {
+            horizontalAlign: 'left',
+            offsetX: 40
+          }
+          };
+  
+          let rainfallchart = new ApexCharts(document.querySelector("#rainfallchart"), rainfalloprions);
+          rainfallchart.render();
+    
+    </script>
 </body>
 </html>
