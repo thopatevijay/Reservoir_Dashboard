@@ -13,4 +13,4 @@ Analyzing the reservoir data and displaying on dashboard.
 
 ## Preview
 
-![GitHub Logo](/src/img/dashboard.png)
+<img src="/src/img/dashboard.png">
