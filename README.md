@@ -13,4 +13,4 @@ Analyzing the reservoir data and displaying on dashboard.
 
 ## Preview
 
-<img src="/src/img/dashboard.png" height="100">
+<img src="/src/img/dashboard.png">
