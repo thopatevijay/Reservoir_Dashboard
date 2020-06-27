@@ -16,7 +16,8 @@ app.set('views','./src/views');
 app.set('view engine','ejs');
 
 // defining PORT
-app.listen(3000, () => console.log('listening at 3000'));
+const port = process.env.PORT || 3000;
+app.listen(port, () => console.log(`listening at ${port}`));
 
 
 // Defining Router 
