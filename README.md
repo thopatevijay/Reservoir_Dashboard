@@ -11,5 +11,6 @@ Kerala state Dam Reservoir Dashboard.
 Analyzing the reservoir data and displaying on dashboard.
 
 
+## Preview
+
 ![GitHub Logo](/src/img/dashboard.png)
-Format: ![Alt Text](https://reservoirdashboard.glitch.me/)
